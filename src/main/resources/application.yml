@@ -17,7 +17,16 @@ spring:
         - id: auth-service
           uri: http://localhost:8081
           predicates:
-            - Path=/auth/**
+            - Path=/auth/login,/auth/register
+
+        # AUTH SWAGGER
+        - id: auth-swagger
+          uri: http://localhost:8081
+          predicates:
+            - Path=/auth/v3/api-docs
+          filters:
+            - RewritePath=/auth/v3/api-docs, /v3/api-docs
+
 
         # USER SERVICE
         - id: user-service
@@ -42,6 +51,13 @@ spring:
           uri: http://localhost:8085
           predicates:
             - Path=/ai/**
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    urls:
+      - name: auth-service
+        url: /auth/v3/api-docs
 
 jwt:
   secret: my-super-secret-key-for-jwt-validation-123456

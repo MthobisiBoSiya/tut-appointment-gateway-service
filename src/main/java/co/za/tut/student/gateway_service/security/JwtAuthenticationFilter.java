@@ -30,7 +30,8 @@ public class JwtAuthenticationFilter
                         .getPath();
 
         // PUBLIC ENDPOINTS
-        if (path.contains("/auth/login") ||
+        if (path.contains("/swagger-ui") ||
+                path.contains("/v3/api-docs") || path.contains("/auth/login") ||
                 path.contains("/auth/register") ||
                 path.contains("/auth/refresh")) {
 
