@@ -38,7 +38,7 @@ spring:
         - id: scheduling-service
           uri: http://localhost:8083
           predicates:
-            - Path=/appointments/**
+            - Path=/api/appointments/**
 
         # NOTIFICATION SERVICE
         - id: notification-service
